@@ -2,7 +2,6 @@ class TableGenerator(object):
     def readFile(self, file):
         self.results = {}
         self.file = file
-
         with open(self.file, 'r') as file:
             for line in file:
                 self.splitLine = line.split()
@@ -20,31 +19,31 @@ class TableGenerator(object):
                     else:
                         self.results.update({self.team2: 0})
 
-                    if int(self.splitLine[1][0]) == int(self.splitLine[-1]):
+                if int(self.splitLine[1][0]) == int(self.splitLine[-1]):
 
-                        if self.team1 in self.results:
-                            self.results[self.team1] += 1
-                        else:
-                            self.results.update({self.team1: 1})
+                    if self.team1 in self.results:
+                        self.results[self.team1] += 1
+                    else:
+                        self.results.update({self.team1: 1})
 
-                        if self.team2 in self.results:
-                            self.results[self.team2] += 1
-                        else:
-                            self.results.update({self.team2: 1})
+                    if self.team2 in self.results:
+                        self.results[self.team2] += 1
+                    else:
+                        self.results.update({self.team2: 1})
 
-                    if int(self.splitLine[1][0]) < int(self.splitLine[-1]):
+                if int(self.splitLine[1][0]) < int(self.splitLine[-1]):
 
-                        if self.team1 in self.results:
-                            self.results[self.team1] += 0
-                        else:
-                            self.results.update({self.team1: 0})
+                    if self.team1 in self.results:
+                        self.results[self.team1] += 0
+                    else:
+                        self.results.update({self.team1: 0})
 
-                        if self.team2 in self.results:
-                            self.results[self.team2] += 3
-                        else:
-                            self.results.update({self.team2: 3})
+                    if self.team2 in self.results:
+                        self.results[self.team2] += 3
+                    else:
+                        self.results.update({self.team2: 3})
 
-            allResults = self.results
+                allResults = self.results
             return allResults
 
 
