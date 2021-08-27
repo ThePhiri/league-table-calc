@@ -1,5 +1,2 @@
-1. Tarantulas, 6 pts
-2. Lions, 5 pts
-3. Snakes, 1 pts
-4. Awesome, 1 pts
-5. Grouches, 0 pts
+1. Lions, 3 pts
+2. Snakes, 0 pts

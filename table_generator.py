@@ -52,22 +52,28 @@ class ShowRanking:
     sorted_scores = []
 
     def sortResults(self):
-        unsorted = self.soccer_results.readFile('input.txt')
+        filePath = input("Please enter file pith of input file")
+        unsorted = self.soccer_results.readFile(filePath)
         self.sorted_scores = sorted(
-            unsorted.items(), key=lambda x: x[1], reverse=True)
+            unsorted.items(), key=lambda x: (-x[1], x[0]))
+
+        print(self.sorted_scores)
         return self.sorted_scores
 
-    def displayResults(self):
+    def writeResults(self):
         sorted_results = self.sortResults()
         with open('output.txt', 'w') as f:
             for idx, team in enumerate(sorted_results):
                 f.write('{0}. {1}, {2} pts\n'.format(
                     idx + 1, team[0], team[1]))
+                f.truncate()
+
+        print("File generated as output.txt in current folder")
 
 
 def main():
     finalTable = ShowRanking()
-    finalTable.displayResults()
+    finalTable.writeResults()
 
 
 if __name__ == "__main__":
